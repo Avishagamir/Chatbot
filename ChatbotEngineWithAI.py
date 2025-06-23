@@ -29,7 +29,7 @@ df["value_score"] = (df["number_of_reviews"] * (df["reviews_per_month"].fillna(0
 
 danger_zones = ["Bronx", "Staten Island"]
 df["reviews_per_month"] = df["reviews_per_month"].fillna(0)
-
+df.to_csv("filtered_apartments.csv", index=False)
 def apply_clustering(df):
     features = df[["price", "number_of_reviews", "reviews_per_month", "minimum_nights", "availability_365"]].fillna(0)
     scaler = StandardScaler()
